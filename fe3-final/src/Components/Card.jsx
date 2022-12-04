@@ -23,11 +23,11 @@ const Card = ({ name, username, id }) => {
     <div className="card">
       {/* En cada card deberan mostrar en name - username y el id */}
       <Outlet />
-      <img src="/images/doctor.jpg" alt="dentist" />
-      <Link key={id} to={routes.dentist}>
+      <Link key={id} to={`/dentist/${id}`}>
+        <img src="/images/doctor.jpg" alt="dentist" />
         <h3>{name}</h3>
+        <h4>{username}</h4>
       </Link>
-      <h4>{username}</h4>
 
       {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
 
