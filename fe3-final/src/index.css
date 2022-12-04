@@ -94,7 +94,7 @@ form {
   margin: 0 auto;
 }
 /*Modifiqué el ancho de la imagen de card*/
-.card > img {
+.card img {
   width: 190px;
 }
 
