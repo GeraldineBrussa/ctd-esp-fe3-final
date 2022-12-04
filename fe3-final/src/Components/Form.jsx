@@ -9,11 +9,11 @@ const Form = () => {
   });
   const handleInput = (e) => {
     e.preventDefault();
+    setInput({ ...input, [e.target.name]: e.target.value });
     //Faltan las validaciones con los mensajes
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    setInput({ ...input, [e.target.name]: e.target.value });
     //Falta que luego se agregue el mensaje de gracias, te contactaremos lo antes posible
   };
 
