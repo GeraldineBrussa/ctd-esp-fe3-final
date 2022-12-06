@@ -26,7 +26,7 @@ const ScrollToTop = () => {
     <div className="top-to-btm">
       {showTopBtn && (
         <button className="icon-position icon-style" onClick={goToTop}>
-          Go To Top
+          Top
         </button>
       )}
     </div>

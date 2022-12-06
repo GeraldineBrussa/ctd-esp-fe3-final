@@ -137,7 +137,7 @@ tr:nth-child(even) {
 }
 
 .icon-style {
-  background-color: #551b54;
+  background-color: #bb0101;
   border: 2px solid #fff;
   border-radius: 50%;
   height: 50px;
@@ -151,8 +151,8 @@ tr:nth-child(even) {
 .icon-style:hover {
   animation: none;
   background: #fff;
-  color: #551b54;
-  border: 2px solid #551b54;
+  color: #bb0101;
+  border: 2px solid #bb0101;
 }
 
 @keyframes movebtn {

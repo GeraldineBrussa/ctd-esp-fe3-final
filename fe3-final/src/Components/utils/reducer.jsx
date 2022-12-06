@@ -25,7 +25,7 @@ export const reducerFav = (state, action) => {
       };
     case "REMOVE_FROM_CART":
       return state.filter((item) => item.name !== action.item.name);
-    // Después le ponemos más casos para tener más nota
+    // Después le ponemos más casos para tener más nota éste todavía no está
     default:
       throw new Error();
   }
