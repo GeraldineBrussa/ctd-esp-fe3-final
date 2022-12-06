@@ -1,18 +1,17 @@
 import React, { useEffect } from "react";
-import { Link, Outlet } from "react-router-dom";
-import { routes } from "../Routes/routes";
-import { useContextGlobal } from "../Components/utils/GlobalContext";
+import { Link } from "react-router-dom";
+import { useContextGlobal } from "../Components/utils/global.context";
 
 const Card = ({ name, username, id }) => {
   const { providerValue } = useContextGlobal();
-  const { state, dispatch } = providerValue;
-  useEffect(() => {
-    localStorage.setItem("favs", JSON.stringify(state));
-  }, [state]);
+  const { stateFav, dispatchFav } = providerValue;
 
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(stateFav));
+  }, [stateFav]);
   const addFav = () => {
     // Aqui iria la logica para agregar la Card en el localStorage
-    dispatch({
+    dispatchFav({
       type: "ADD_FAV",
       payload: { name, username, id },
     });
@@ -22,7 +21,6 @@ const Card = ({ name, username, id }) => {
   return (
     <div className="card">
       {/* En cada card deberan mostrar en name - username y el id */}
-      <Outlet />
       <Link key={id} to={`/dentist/${id}`}>
         <img src="/images/doctor.jpg" alt="dentist" />
         <h3>{name}</h3>

@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
-import Footer from "../Components/Footer";
-import Navbar from "../Components/Navbar";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useContextGlobal } from "../Components/utils/global.context";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Detail = () => {
+  //const { providerValue } = useContextGlobal();
+  //const { stateTheme } = providerValue;
+  //className={stateTheme.theme} acá el fragment lo cambiaría por div y le pondría ésta className
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
-  //const { id } = useParams();
-  const params = useParams();
-  const idDentist = params.id;
+  const { id } = useParams();
+
   const [dentist, setDentist] = useState([]);
-  const url = `https://jsonplaceholder.typicode.com/users/${idDentist}`;
+  const url = `https://jsonplaceholder.typicode.com/users/${id}`;
   useEffect(() => {
     axios(url).then((res) => setDentist([res.data]));
   }, []);
   return (
     <>
-      <Navbar />
       <h1>Detail Dentist id </h1>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
@@ -42,7 +42,6 @@ const Detail = () => {
           ))}
         </tbody>
       </table>
-      <Footer />
     </>
   );
 };

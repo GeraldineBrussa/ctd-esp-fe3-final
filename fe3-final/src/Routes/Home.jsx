@@ -1,22 +1,20 @@
 import React from "react";
 import Card from "../Components/Card";
-import Footer from "../Components/Footer";
-import Navbar from "../Components/Navbar";
-import { useContextGlobal } from "../Components/utils/GlobalContext";
+import { useContextGlobal } from "../Components/utils/global.context";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
   const { providerValue } = useContextGlobal();
-  const { dentist } = providerValue;
+  const { dentists, stateTheme } = providerValue;
+  //className={stateTheme.theme}
   return (
     <>
-      <Navbar />
-      <main className="">
+      <main>
         <h1>Home</h1>
         <div className="card-grid">
           {/* Aqui deberias renderizar las cards */}
-          {dentist.map((item) => (
+          {dentists.map((item) => (
             <Card
               key={item.id}
               id={item.id}
@@ -26,7 +24,6 @@ const Home = () => {
           ))}
         </div>
       </main>
-      <Footer />
     </>
   );
 };
