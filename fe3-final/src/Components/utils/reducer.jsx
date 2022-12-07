@@ -3,12 +3,10 @@ export const reducerTheme = (state, action) => {
     case "THEME_LiGHT":
       return {
         theme: (state.theme = ""),
-        button: "light",
       };
     case "THEME_DARK":
       return {
         theme: (state.theme = "dark"),
-        button: "dark",
       };
     default:
       throw new Error();
@@ -43,15 +41,11 @@ export function reducerFavMejorado(state, action) {
       return [...state, action.payload];
     }
     case "REMOVE_FAV": {
-      /*{
-        ...state,
-        cart: state.cart.filter((item) => item.id !== action.payload),
-        state.filter((item) => item.name !== action.item.name);
-      }*/
       return state.filter((i) => i.id !== action.payload);
     }
     case "REMOVE_ALL_FAV": {
       localStorage.removeItem("favs");
+      return [];
     }
     default: {
       throw new Error(`No se reconoce el type`);
