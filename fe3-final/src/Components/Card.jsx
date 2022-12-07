@@ -4,18 +4,25 @@ import { useContextGlobal } from "../Components/utils/global.context";
 
 const Card = ({ name, username, id }) => {
   const { providerValue } = useContextGlobal();
-  const { stateFav, dispatchFav } = providerValue;
+  const { stateFav, dispatchFav, stateFavMejorado, dispatchFavMejorado } =
+    providerValue;
 
   useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(stateFav));
-  }, [stateFav]);
+    localStorage.setItem("favs", JSON.stringify(stateFavMejorado));
+  }, [stateFavMejorado]);
   const addFav = () => {
     // Aqui iria la logica para agregar la Card en el localStorage
-    dispatchFav({
+    dispatchFavMejorado({
       type: "ADD_FAV",
       payload: { name, username, id },
     });
     alert("The selected dentist has been added to favorites!");
+  };
+  const removeFav = () => {
+    dispatchFavMejorado({
+      type: "REMOVE_FAV",
+      payload: id,
+    });
   };
 
   return (
@@ -32,6 +39,9 @@ const Card = ({ name, username, id }) => {
       {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
       <button onClick={addFav} className="favButton">
         ⭐
+      </button>
+      <button onClick={removeFav} className="favButton">
+        eminar de fav
       </button>
     </div>
   );

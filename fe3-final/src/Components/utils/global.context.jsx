@@ -7,9 +7,10 @@ import {
   useReducer,
 } from "react";
 import axios from "axios";
-import { reducerFav, reducerTheme } from "./reducer";
+import { reducerFavMejorado, reducerTheme } from "./reducer";
 
 const initialState = { theme: "", data: [] };
+
 export const ContextGlobal = createContext();
 const ContextProvider = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
@@ -19,19 +20,35 @@ const ContextProvider = ({ children }) => {
     axios(url).then((res) => setDentists(res.data));
   }, []);
 
-  const [stateFav, dispatchFav] = useReducer(reducerFav, initialState);
+  function initFav(initialValue) {
+    return localStorage.getItem("favs")
+      ? JSON.parse(localStorage.getItem("favs"))
+      : initialValue;
+  }
+  const [stateFavMejorado, dispatchFavMejorado] = useReducer(
+    reducerFavMejorado,
+    initialState.data
+  );
+  //const [stateFav, dispatchFav] = useReducer(reducerFav, initialState);
   const [stateTheme, dispatchTheme] = useReducer(reducerTheme, initialState);
 
   const providerValue = useMemo(
     () => ({
       dentists,
       setDentists,
-      stateFav,
-      dispatchFav,
       stateTheme,
       dispatchTheme,
+      stateFavMejorado,
+      dispatchFavMejorado,
     }),
-    [dentists, setDentists, stateFav, dispatchFav, stateTheme, dispatchTheme]
+    [
+      dentists,
+      setDentists,
+      stateTheme,
+      dispatchTheme,
+      stateFavMejorado,
+      dispatchFavMejorado,
+    ]
   );
 
   return (

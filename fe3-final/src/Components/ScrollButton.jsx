@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const ScrollToTop = () => {
+const ScrollButon = () => {
   const [showTopBtn, setShowTopBtn] = useState(false);
 
   // changing the showTopBtn state whenever a scroll event happens
@@ -33,4 +33,4 @@ const ScrollToTop = () => {
   );
 };
 
-export default ScrollToTop;
+export default ScrollButon;

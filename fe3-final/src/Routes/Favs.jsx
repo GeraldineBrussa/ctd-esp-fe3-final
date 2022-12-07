@@ -6,25 +6,26 @@ import { useContextGlobal } from "../Components/utils/global.context";
 
 const Favs = () => {
   const { providerValue } = useContextGlobal();
-  const { stateFav, dispatchFav } = providerValue;
-
+  const { stateFav, dispatchFav, stateFavMejorado, dispatchFavMejorado } =
+    providerValue;
+  /*
   const [fav, setFav] = useState([]);
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("data"));
+    const data = JSON.parse(localStorage.getItem("favs"));
     setFav(...fav, data.data);
   }, []);
   const deleteLocal = () => {
     localStorage.removeItem("data");
-  };
-  const handleDeleteAll = (e) => {
-    e.preventDefault();
-    deleteLocal();
-    dispatchFav({
-      type: "REMOVE_ALL_FAV",
-    });
     setFav([]);
   };
-
+  deleteLocal();*/
+  const handleDeleteAll = (e) => {
+    e.preventDefault();
+    dispatchFavMejorado({
+      type: "REMOVE_ALL_FAV",
+    });
+  };
+  //console.log(stateFavMejorado);
   return (
     <>
       <h1>Dentists Favs</h1>
@@ -32,9 +33,9 @@ const Favs = () => {
       <div className="card-grid">
         {/* este componente debe consumir los destacados del localStorage */}
         {/* Deberan renderizar una Card por cada uno de ellos */}
-        {fav.map((item, index) => (
+        {stateFavMejorado.map((item) => (
           <Card
-            key={index}
+            key={item.id}
             id={item.id}
             name={item.name}
             username={item.username}

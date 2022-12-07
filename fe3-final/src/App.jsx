@@ -8,7 +8,7 @@ import Favs from "./Routes/Favs";
 import NotFound from "./Routes/NotFound";
 import { Routes, Route } from "react-router-dom";
 import { useContextGlobal } from "./Components/utils/global.context";
-import ScrollToTop from "./Components/ScrollButton";
+import ScrollButon from "./Components/ScrollButton";
 
 function App() {
   const { providerValue } = useContextGlobal();
@@ -23,7 +23,7 @@ function App() {
         <Route path={routes.fav} element={<Favs />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <ScrollToTop />
+      <ScrollButon />
       <Footer />
     </div>
   );
