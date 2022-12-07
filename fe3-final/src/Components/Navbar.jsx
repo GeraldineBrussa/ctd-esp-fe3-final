@@ -21,11 +21,13 @@ const Navbar = () => {
       <Link to={routes.contact}>Contact</Link>
       <Link to={routes.fav}>Favorites</Link>
       {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
-      {stateTheme.theme === "" ? (
-        <button onClick={dispatchTheme({ type: "THEME_DARK" })}>🌙</button>
-      ) : (
-        <button onClick={dispatchTheme({ type: "THEME_LiGHT" })}>☀🌞</button>
-      )}
+      <div>
+        {stateTheme.theme === "" ? (
+          <button onClick={handleChangeTheme}>🌙</button>
+        ) : (
+          <button onClick={handleChangeTheme}>🌞</button>
+        )}
+      </div>
     </nav>
   );
 };
