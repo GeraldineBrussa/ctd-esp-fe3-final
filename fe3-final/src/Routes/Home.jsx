@@ -12,17 +12,11 @@ const Home = () => {
     <>
       <main>
         <h1>Home</h1>
-        <div className="card-grid">
-          {/* Aqui deberias renderizar las cards */}
-          {dentists.map((item) => (
-            <Card
-              key={item.id}
-              id={item.id}
-              name={item.name}
-              username={item.username}
-            ></Card>
-          ))}
-        </div>
+        {dentists.map((item) => (
+          <div className="card-grid" key={item.id}>
+            <Card id={item.id} name={item.name} username={item.username}></Card>
+          </div>
+        ))}
       </main>
     </>
   );

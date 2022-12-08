@@ -1,0 +1,4 @@
+export const TYPES = {
+  THEME_LIGHT: "THEME_LIGHT",
+  THEME_DARK: "THEME_DARK",
+};
