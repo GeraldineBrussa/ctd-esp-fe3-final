@@ -7,7 +7,7 @@ import {
   useReducer,
 } from "react";
 import axios from "axios";
-import { reducerFavMejorado, reducerTheme } from "./reducer";
+import { reducerFav, reducerTheme } from "./reducer";
 
 const initialState = { theme: "", data: [] };
 
@@ -25,11 +25,15 @@ const ContextProvider = ({ children }) => {
       ? JSON.parse(localStorage.getItem("favs"))
       : initialValue;
   }
-  const [stateFavMejorado, dispatchFavMejorado] = useReducer(
-    reducerFavMejorado,
-    initialState.data
+  const [stateFav, dispatchFav] = useReducer(
+    reducerFav,
+    initialState.data,
+    initFav
   );
-  //const [stateFav, dispatchFav] = useReducer(reducerFav, initialState);
+  useEffect(() => {
+    localStorage.setItem("favs", JSON.stringify(stateFav));
+  }, [stateFav]);
+
   const [stateTheme, dispatchTheme] = useReducer(reducerTheme, initialState);
 
   const providerValue = useMemo(
@@ -38,17 +42,10 @@ const ContextProvider = ({ children }) => {
       setDentists,
       stateTheme,
       dispatchTheme,
-      stateFavMejorado,
-      dispatchFavMejorado,
+      stateFav,
+      dispatchFav,
     }),
-    [
-      dentists,
-      setDentists,
-      stateTheme,
-      dispatchTheme,
-      stateFavMejorado,
-      dispatchFavMejorado,
-    ]
+    [dentists, setDentists, stateTheme, dispatchTheme, stateFav, dispatchFav]
   );
 
   return (
