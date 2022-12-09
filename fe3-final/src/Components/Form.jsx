@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 const Form = () => {
   const [user, setUser] = useState({
     fullName: "",
     email: "",
+    fullNameSuccesMessage: "",
   });
 
   const [message, setMessage] = useState({
@@ -20,7 +21,7 @@ const Form = () => {
     3: "Name needs at least 4 letters",
     4: "Email is empty",
     5: "Email is invalid",
-    6: "We received your information and we're going to contact you",
+    6: " we received your information and we're going to contact you",
   };
 
   //Regex
@@ -51,8 +52,13 @@ const Form = () => {
     } else {
       //succes message
       setMessage((prev) => ({ ...prev, succesMessage: messages[6] }));
-      //clear error message and inputs
+      //number for the ternary conditional on fullNameSuccesMessage
+      setMessage((prev) => ({ ...prev, numberMessage: 6 }));
+      //save de fullName for the fullNameSuccesMessage
+      setUser((prev) => ({ ...prev, fullNameSuccesMessage: user.fullName }));
+      //clear error message
       setMessage((prev) => ({ ...prev, errorMessage: messages[0] }));
+      //clear inputs for a new user
       setUser((prev) => ({ ...prev, fullName: messages[0] }));
       setUser((prev) => ({ ...prev, email: messages[0] }));
     }
@@ -81,7 +87,10 @@ const Form = () => {
         </form>
       </fieldset>
       <p className="error">{message.errorMessage}</p>
-      <p className="success">{message.succesMessage}</p>
+      <p className="success">
+        {message.numberMessage == 6 ? "Hi " + user.fullNameSuccesMessage : ""}
+        {message.succesMessage}
+      </p>
     </>
   );
 };
