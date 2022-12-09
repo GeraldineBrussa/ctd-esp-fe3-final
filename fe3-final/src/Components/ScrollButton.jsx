@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from "react";
 
 const ScrollButon = () => {
-  const [showTopBtn, setShowTopBtn] = useState(false);
+  const [showScrollBtn, setShowScrollBtn] = useState(false);
 
-  // changing the showTopBtn state whenever a scroll event happens
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 400) {
-        setShowTopBtn(true);
+        setShowScrollBtn(true);
       } else {
-        setShowTopBtn(false);
+        setShowScrollBtn(false);
       }
     });
   }, []);
 
-  // fucntion to help scroll to top smoothly
-  const goToTop = () => {
+  const goTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -23,9 +21,9 @@ const ScrollButon = () => {
   };
 
   return (
-    <div className="top-to-btm">
-      {showTopBtn && (
-        <button className="icon-position icon-style" onClick={goToTop}>
+    <div className="top-btn">
+      {showScrollBtn && (
+        <button className="btn-position btn-style" onClick={goTop}>
           Top
         </button>
       )}

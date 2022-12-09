@@ -19,13 +19,13 @@ const Navbar = () => {
       <Link to={routes.contact}>Contact</Link>
       <Link to={routes.fav}>Favorites</Link>
 
-      <div>
+      <>
         {stateTheme.theme === "" ? (
           <button onClick={handleChangeTheme}>🌙</button>
         ) : (
           <button onClick={handleChangeTheme}>🌞</button>
         )}
-      </div>
+      </>
     </nav>
   );
 };
