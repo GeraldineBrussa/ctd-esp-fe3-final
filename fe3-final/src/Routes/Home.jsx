@@ -12,11 +12,17 @@ const Home = () => {
     <>
       <main>
         <h1>Home</h1>
-        {dentists.map((item) => (
-          <div className="card-grid" key={item.id}>
-            <Card id={item.id} name={item.name} username={item.username}></Card>
-          </div>
-        ))}
+        <div className="card-grid">
+          {dentists.map((item) => (
+            <React.Fragment key={item.id}>
+              <Card
+                id={item.id}
+                name={item.name}
+                username={item.username}
+              ></Card>
+            </React.Fragment>
+          ))}
+        </div>
       </main>
     </>
   );

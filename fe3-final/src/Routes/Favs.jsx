@@ -19,11 +19,13 @@ const Favs = () => {
     <>
       <h1>Dentists Favs</h1>
       <button onClick={handleDeleteAll}>Delete all Favourites Dentist</button>
-      {fav.map((item) => (
-        <div className="card-grid" key={item.id}>
-          <Card id={item.id} name={item.name} username={item.username}></Card>
-        </div>
-      ))}
+      <div className="card-grid">
+        {fav.map((item) => (
+          <React.Fragment key={item.id}>
+            <Card id={item.id} name={item.name} username={item.username}></Card>
+          </React.Fragment>
+        ))}
+      </div>
     </>
   );
 };
