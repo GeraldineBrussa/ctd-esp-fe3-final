@@ -13,7 +13,7 @@ code {
     monospace;
 }
 .favButton {
-  background-color: rgba(116, 127, 224, 0.479);
+  background-color: rgba(226, 224, 79, 0.479);
   padding: 10px;
   border: none;
   width: 100%;
@@ -22,7 +22,7 @@ code {
   border-radius: 5px;
 }
 .favButtonAdd {
-  background-color: rgba(53, 71, 228, 0.76);
+  background-color: rgba(250, 247, 50, 0.863);
   padding: 10px;
   border: none;
   width: 100%;
@@ -31,10 +31,10 @@ code {
   border-radius: 5px;
 }
 .favButton:active {
-  background-color: mediumblue;
+  background-color: yellow;
 }
 .favButtonAdd:active {
-  background-color: mediumblue;
+  background-color: yellow;
 }
 .themeBtnLight {
   background-color: black;
@@ -138,13 +138,16 @@ input {
 }
 form button {
   height: 2rem;
-  background-color: rgba(67, 83, 235, 0.479);
+  background-color: rgba(226, 224, 79, 0.479);
   padding: 10px;
   border: none;
   width: 50%;
   cursor: pointer;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+}
+form button:active {
+  background-color: rgba(250, 247, 50, 0.863);
 }
 
 .card {
@@ -188,7 +191,7 @@ form button {
 }
 .btnFav {
   height: 2rem;
-  background-color: rgba(67, 83, 235, 0.479);
+  background-color: rgba(226, 224, 79, 0.479);
   padding: 10px;
   border: none;
   width: 50%;
@@ -198,6 +201,9 @@ form button {
   margin: 2rem;
   margin-bottom: 5rem;
   text-align: center;
+}
+.btnFav:active {
+  background-color: rgba(250, 247, 50, 0.863);
 }
 .detail {
   display: flex;
@@ -222,10 +228,10 @@ th {
   padding: 1.5rem;
 }
 thead {
-  background-color: rgba(53, 71, 228, 0.76);
+  background-color: rgba(250, 247, 50, 0.863);
 }
 tbody {
-  background-color: rgba(116, 127, 224, 0.479);
+  background-color: rgba(226, 224, 79, 0.479);
 }
 tr:nth-child(even) {
   background-color: #dddddd;
@@ -237,6 +243,23 @@ tr:nth-child(even) {
 }
 .dark > a {
   color: white;
+  background-color: transparent;
+}
+.dark > nav {
+  display: flex;
+  width: 100hv;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #12121296;
+  color: white;
+}
+.dark > nav a {
+  color: white;
+  background-color: transparent;
+}
+.dark table {
+  color: black;
 }
 
 .top-btn {
@@ -290,7 +313,7 @@ tr:nth-child(even) {
   position: relative;
   width: 30px;
   height: 30px;
-  background: #3498db;
+  background: rgba(250, 247, 50, 0.863);
   border-radius: 50px;
   animation: preloader_5 1.5s infinite linear;
 }
@@ -298,8 +321,8 @@ tr:nth-child(even) {
   position: absolute;
   width: 50px;
   height: 50px;
-  border-top: 10px solid #9b59b6;
-  border-bottom: 10px solid #9b59b6;
+  border-top: 10px solid rgba(226, 224, 79, 0.479);
+  border-bottom: 10px solid rgba(226, 224, 79, 0.479);
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-radius: 50px;
@@ -314,7 +337,7 @@ tr:nth-child(even) {
   }
   50% {
     transform: rotate(180deg);
-    background: #2ecc71;
+    background: #2ecc9d;
   }
   100% {
     transform: rotate(360deg);
@@ -322,15 +345,15 @@ tr:nth-child(even) {
 }
 @keyframes preloader_5_after {
   0% {
-    border-top: 10px solid #9b59b6;
-    border-bottom: 10px solid #9b59b6;
+    border-top: 10px solid rgba(226, 224, 79, 0.479);
+    border-bottom: 10px solid rgba(226, 224, 79, 0.479);
   }
   50% {
-    border-top: 10px solid #3498db;
-    border-bottom: 10px solid #3498db;
+    border-top: 10px solid rgba(250, 247, 50, 0.863);
+    border-bottom: 10px solid rgba(250, 247, 50, 0.863);
   }
   100% {
-    border-top: 10px solid #9b59b6;
-    border-bottom: 10px solid #9b59b6;
+    border-top: 10px solid rgba(226, 224, 79, 0.479);
+    border-bottom: 10px solid rgba(226, 224, 79, 0.479);
   }
 }

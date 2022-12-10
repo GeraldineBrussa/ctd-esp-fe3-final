@@ -6,16 +6,11 @@ const useInput = (type) => {
   const onChange = (e) => {
     setValue(e.target.value);
   };
-  const reset = (e) => {
-    setValue((e.target.value = ""));
-  };
 
   return {
     value,
     onChange,
     type,
-    setValue,
-    reset,
   };
 };
 
