@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "../Components/Card";
 import { useContextGlobal } from "../Components/utils/global.context";
 import { TYPES } from "../Components/utils/actions/FavAction";
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Favs = () => {
   const { providerValue } = useContextGlobal();
-  const { dispatchFav, fav } = providerValue;
+  const { dispatchFav, fav, loading, setLoading } = providerValue;
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+  }, []);
 
   const handleDeleteAll = (e) => {
     e.preventDefault();
@@ -16,17 +20,27 @@ const Favs = () => {
   };
 
   return (
-    <>
+    <div className="favs">
       <h1>Dentists Favs</h1>
-      <button onClick={handleDeleteAll}>Delete all Favourites Dentist</button>
-      <div className="card-grid">
-        {fav.map((item) => (
-          <React.Fragment key={item.id}>
-            <Card id={item.id} name={item.name} username={item.username}></Card>
-          </React.Fragment>
-        ))}
-      </div>
-    </>
+      <button className="btnFav" onClick={handleDeleteAll}>
+        Delete all Favourites Dentist
+      </button>
+      {loading ? (
+        <div id="preloader5"></div>
+      ) : (
+        <div className="card-grid">
+          {fav.map((item) => (
+            <React.Fragment key={item.id}>
+              <Card
+                id={item.id}
+                name={item.name}
+                username={item.username}
+              ></Card>
+            </React.Fragment>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 

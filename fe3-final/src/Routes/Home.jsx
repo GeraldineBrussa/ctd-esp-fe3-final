@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "../Components/Card";
 import { useContextGlobal } from "../Components/utils/global.context";
 
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
-
 const Home = () => {
   const { providerValue } = useContextGlobal();
-  const { dentists, stateTheme } = providerValue;
-  //className={stateTheme.theme}
+  const { dentists, loading, setLoading } = providerValue;
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+  }, []);
+
   return (
-    <>
-      <main>
-        <h1>Home</h1>
+    <main>
+      <h1>Home</h1>
+      {loading ? (
+        <div id="preloader5"></div>
+      ) : (
         <div className="card-grid">
           {dentists.map((item) => (
             <React.Fragment key={item.id}>
@@ -23,8 +28,8 @@ const Home = () => {
             </React.Fragment>
           ))}
         </div>
-      </main>
-    </>
+      )}
+    </main>
   );
 };
 

@@ -31,7 +31,7 @@ const Card = ({ name, username, id }) => {
       </Link>
 
       {stateFav.find((i) => i.id === id) ? (
-        <button onClick={removeFav} className="favButton">
+        <button onClick={removeFav} className="favButtonAdd">
           🌟
         </button>
       ) : (

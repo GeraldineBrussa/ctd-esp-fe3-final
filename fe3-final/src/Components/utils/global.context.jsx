@@ -41,6 +41,7 @@ const ContextProvider = ({ children }) => {
   }, [stateFav]);
 
   const [stateTheme, dispatchTheme] = useReducer(reducerTheme, initialState);
+  const [loading, setLoading] = useState(true);
 
   const providerValue = useMemo(
     () => ({
@@ -52,6 +53,8 @@ const ContextProvider = ({ children }) => {
       dispatchFav,
       fav,
       setFav,
+      loading,
+      setLoading,
     }),
     [
       dentists,
@@ -62,6 +65,8 @@ const ContextProvider = ({ children }) => {
       dispatchFav,
       fav,
       setFav,
+      loading,
+      setLoading,
     ]
   );
 

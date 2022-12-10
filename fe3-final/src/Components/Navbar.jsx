@@ -15,17 +15,21 @@ const Navbar = () => {
 
   return (
     <nav className={stateTheme.theme}>
-      <Link to={routes.home}>Home</Link>
-      <Link to={routes.contact}>Contact</Link>
-      <Link to={routes.fav}>Favorites</Link>
-
-      <>
+      <h2>DH Odonto</h2>
+      <div>
+        <Link to={routes.home}>Home</Link>
+        <Link to={routes.contact}>Contact</Link>
+        <Link to={routes.fav}>Favorites</Link>
         {stateTheme.theme === "" ? (
-          <button onClick={handleChangeTheme}>🌙</button>
+          <button className="themeBtnLight" onClick={handleChangeTheme}>
+            🌙
+          </button>
         ) : (
-          <button onClick={handleChangeTheme}>🌞</button>
+          <button className="themeBtnDark" onClick={handleChangeTheme}>
+            🌞
+          </button>
         )}
-      </>
+      </div>
     </nav>
   );
 };
